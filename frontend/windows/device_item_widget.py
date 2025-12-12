@@ -399,6 +399,7 @@ class DeviceItemWidget(QFrame):
         return self._device
 
     def update_from_device(self, device: DeviceModel, preserve_user_input: bool = True):
+        self._debounce_timer.stop()
 
         if preserve_user_input:
   

@@ -1,4 +1,5 @@
 #include "devices.h"
+#include "logger.h"
 #include <algorithm>
 #include <stdexcept>
 #include <cmath>
@@ -37,8 +38,14 @@ int LightDevice::getBrightness() const
 
 void LightDevice::updateFromJson(const json& j)
 {
-    if (j.contains("is_on"))
-        on = j["is_on"].get<bool>();
+    if (j.contains("is_on")) {
+        bool newState = j["is_on"].get<bool>();
+        if (newState != on) {
+            Logger::instance().info("Device '" + name + "' (ID: " + id + ") state changed: " + 
+                        (on ? "ON" : "OFF") + " -> " + (newState ? "ON" : "OFF"));
+        }
+        on = newState;
+    }
 
     if (j.contains("brightness"))
         setBrightness(j["brightness"].get<int>());
@@ -91,8 +98,14 @@ void ClimateDevice::setTargetTemperature(int t)
 
 void ClimateDevice::updateFromJson(const json& j)
 {
-    if (j.contains("is_on"))
-        on = j["is_on"].get<bool>();
+    if (j.contains("is_on")) {
+        bool newState = j["is_on"].get<bool>();
+        if (newState != on) {
+            Logger::instance().info("Device '" + name + "' (ID: " + id + ") state changed: " + 
+                        (on ? "ON" : "OFF") + " -> " + (newState ? "ON" : "OFF"));
+        }
+        on = newState;
+    }
 
     if (j.contains("target_temperature"))
         targetTemperature = j["target_temperature"].get<int>();
@@ -141,8 +154,14 @@ void SmartPlugDevice::setLoadPower(double p)
 
 void SmartPlugDevice::updateFromJson(const json& j)
 {
-    if (j.contains("is_on"))
-        on = j["is_on"].get<bool>();
+    if (j.contains("is_on")) {
+        bool newState = j["is_on"].get<bool>();
+        if (newState != on) {
+            Logger::instance().info("Device '" + name + "' (ID: " + id + ") state changed: " + 
+                        (on ? "ON" : "OFF") + " -> " + (newState ? "ON" : "OFF"));
+        }
+        on = newState;
+    }
 
     if (j.contains("load_power"))
         setLoadPower(j["load_power"].get<double>());
