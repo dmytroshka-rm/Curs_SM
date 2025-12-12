@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+env/
+
+# C++
+*.o
+*.obj
+*.exe
+*.out
+*.pdb
+*.ilk
+*.tlog
+*.log
+*.idb
+*.lib
+*.exp
+
+# Build directories
+backend/build/
+**/Debug/
+**/Release/
+**/x64/
+
+# IDE
+.vscode/
+.vs/
+*.suo
+*.user
+*.vcxproj.user
+
+# Logs
+*.log
+
+# State files
+smarthome_state.json

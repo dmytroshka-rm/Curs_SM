@@ -1,0 +1,12 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/icons">
+    <file>resources/icons/app.svg</file>
+    <file>resources/icons/room.svg</file>
+    <file>resources/icons/device.svg</file>
+    <file>resources/icons/light.svg</file>
+    <file>resources/icons/plug.svg</file>
+    <file>resources/icons/stats.svg</file>
+    <file>resources/icons/reload.svg</file>
+    <file>resources/icons/close.svg</file>
+</qresource>
+</RCC>
