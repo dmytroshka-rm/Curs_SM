@@ -1,0 +1,3 @@
+# Exclude third-party header-only libraries from language statistics
+backend/asio/** linguist-vendored
+backend/crow/** linguist-vendored
